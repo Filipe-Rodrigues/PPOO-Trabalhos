@@ -33,6 +33,22 @@ public class Carro extends Veiculo {
         return ehFlex;
     }
     
+     /**
+     * Calcula o valor do imposto do veículo:
+	 * 
+	 * @return Retorna o imposto em reais
+     */
+    @Override
+    public double getImposto() {
+        double imposto = impostoBase;
+        if (ehFlex) {
+            imposto *= 0.9d;
+        } else {
+            imposto *= 1.05d;
+        }
+        return imposto;
+    }
+    
         /**
      * Retorna a descricao do carro no formato:
      *  Placa   Modelo  Marca   Velocidade km/h     Flex (ou Comum)
@@ -41,7 +57,7 @@ public class Carro extends Veiculo {
      */
     @Override
     public String getDescricaoVeiculo() {
-        String descricao = getDescricaoVeiculo();
+        String descricao = super.getDescricaoVeiculo();
         if (ehFlex) {
             descricao = descricao + "\tFlex";
         }

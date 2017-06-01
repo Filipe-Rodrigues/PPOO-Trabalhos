@@ -41,6 +41,20 @@ public class Onibus extends Veiculo {
      */
     @Override
     public String getDescricaoVeiculo() {
-        return getDescricaoVeiculo() + "\t" + capacidadePassageiros;
+        return super.getDescricaoVeiculo() + "\t" + capacidadePassageiros;
+    }
+
+    /**
+     * Calcula o valor do imposto do veículo:
+	 * 
+	 * @return Retorna o imposto em reais
+     */
+    @Override
+    public double getImposto() {
+        double imposto = impostoBase;
+        if (capacidadePassageiros <= 30) {
+            imposto = 0;
+        }
+        return imposto;
     }
 }

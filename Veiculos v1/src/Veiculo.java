@@ -12,6 +12,7 @@ public abstract class Veiculo {
     private String marca;
     private String placa;
     private int velocidadeAtual;
+    protected static double impostoBase = 100;
     
     /*
      * Constroi o objeto a partir do modelo, marca e placa passados.
@@ -82,10 +83,9 @@ public abstract class Veiculo {
     }
     
     /**
-     * Retorna a descricao do veiculo no formato:
-     *  Placa   Modelo  Marca   Velocidade km/h
+     * Calcula o valor do imposto do veículo:
 	 * 
-	 * @return A descricao do veiculo (seus campos separados por tabulacoes)
+	 * @return Retorna o imposto em reais
      */
     public abstract double getImposto();
     
@@ -96,6 +96,6 @@ public abstract class Veiculo {
 	 * @return A descricao do veiculo (seus campos separados por tabulacoes)
      */
     public String getDescricaoVeiculo() {
-        return placa + "\t" + modelo + "\t" + marca + "\t" + velocidadeAtual + " Km/h";
+        return placa + "\t" + modelo + "\t" + marca + "\tR$ " + getImposto()  + "\t" + velocidadeAtual + " Km/h";
     }
 }

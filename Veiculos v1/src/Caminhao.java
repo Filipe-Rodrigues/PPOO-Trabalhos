@@ -35,6 +35,22 @@ public class Caminhao extends Veiculo
     }
     
     /**
+     * Calcula o valor do imposto do veículo:
+	 * 
+	 * @return Retorna o imposto em reais
+     */
+    @Override
+    public double getImposto() {
+        double imposto = impostoBase;
+        if (capacidadeCarga < 10) {
+            imposto *= 0.9d;
+        } else if (capacidadeCarga > 30) {
+            imposto *= 3d;
+        }
+        return imposto;
+    }
+    
+    /**
      * Retorna a descricao do caminhao no formato:
      *  Placa   Modelo  Marca   Velocidade km/h     Capacidade
 	 * 
@@ -42,6 +58,6 @@ public class Caminhao extends Veiculo
      */
     @Override
     public String getDescricaoVeiculo() {
-        return getDescricaoVeiculo() + "\t" + capacidadeCarga;
+        return super.getDescricaoVeiculo() + "\t" + capacidadeCarga;
     }
 }
